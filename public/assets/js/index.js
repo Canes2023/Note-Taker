@@ -177,4 +177,21 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
+const getAndRenderNotes = () => {
+  getNotes()
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then((jsonNotes) => {
+      console.log('Received JSON notes:', jsonNotes);
+      renderNoteList(jsonNotes);
+    })
+    .catch((error) => {
+      // Handle the error gracefully, e.g., display an error message to the user
+    });
+};
+
 getAndRenderNotes();
