@@ -190,7 +190,7 @@ const getAndRenderNotes = () => {
       renderNoteList(jsonNotes);
     })
     .catch((error) => {
-      // Handle the error gracefully, e.g., display an error message to the user
+      // Handles the error smoothly, it will display an error message to the user
     });
 };
 
